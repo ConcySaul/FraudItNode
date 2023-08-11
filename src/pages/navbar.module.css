@@ -1,0 +1,163 @@
+@font-face {
+    font-family: "akira";
+    src: url("../../styles/akirafont.woff") format("woff");
+}
+
+.nav {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(225,128,18);
+    height: 20vh;
+    width: 100%;
+    z-index: 100;
+}
+
+.divBoxTitle {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.divBoxTitle ul{
+    margin: 0;
+    padding-top: 3%;
+    list-style: none;
+    display: flex;
+}
+
+.divBoxTitle ul li a{
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    font-family: "akira";
+    text-decoration: none;
+    color: #101B21;
+}
+
+.header  {
+    background-image: url('../../public/header.jpg');
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    min-width: 100%;
+    background-position: center right;
+    background-repeat: no-repeat; 
+}
+
+@media (max-width: 1000px) {
+    .header {
+        background-position: center;
+    }
+  }
+
+
+.title {
+    font-family: "akira", sans-serif;
+    color: #101B21;
+    text-align: center;
+}
+
+.divBoxSlogan {
+    position: relative;
+    box-sizing: border-box;
+    width: auto;
+    top: 20%;
+}
+
+
+.slogan {
+    font-family: "akira", sans-serif;
+    color: rgb(225,128,18);
+}
+
+.main {
+    width: 100%;
+    height: 80vh;
+}
+
+.search {
+    width: 100%;
+    height: 40%;
+    background-color: #eaeaea;
+    display: flex;
+    flex-direction: column;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+    width: 100%;
+}
+
+.form button{
+    display: inline-block;
+    background-color: #eaeaea;
+    border: none;
+    outline: none;
+}
+
+.form input{
+    font-family: "akira", sans-serif;
+    width: 3.7%;
+    height: 15%;
+    border-radius: 2%;
+    border-color: #101B21;
+    transition: width 0.5s;
+}
+
+.form select{
+    height: 15%;
+    border-radius: 2%;
+    border-color: #101B21;
+}
+
+.form input:focus {
+    width: 25%;
+}
+
+.form input:focus + button {
+  display: none;
+}
+
+.form input::placeholder{
+    color: #101B21;
+}
+
+.sloganSearch {
+    height: 20%;
+    width: 100%;
+    justify-self: right;
+    animation: flash 5s linear infinite;
+}
+
+.sloganSearch h2{
+    color: rgb(225,128,18);
+    text-align: right;
+    font-family: "akira", sans-serif;
+    
+}
+
+.result {
+    width: 100%;
+    height: 60%;
+    background-color: #101B21;
+}
+
+@keyframes flash {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
