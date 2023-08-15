@@ -10,7 +10,6 @@ type Stations = {
 }
 
 const index = () => {
-    const [data, setData] = useState(null);
     const [search, setSearch] = useState("");
     const [stations, setStations] = useState<Stations | undefined>(undefined);
     const [isPopupOpen, setPopupOpen] = useState(false);

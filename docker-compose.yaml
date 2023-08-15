@@ -1,14 +1,12 @@
 version: "3.3"
 
-networks:
-  db:
-    driver: bridge
-
 services:
   postgres:
     image: postgres:latest
     ports:
       - 5432:5432
+    networks:
+      - backend
     volumes:
       - postgres:/var/lib/postgresql/data/
     environment:
@@ -23,7 +21,7 @@ services:
     ports:
       - "5050:80"
     networks:
-      - db
+      - backend
     environment:
       PGADMIN_DEFAULT_EMAIL: saulconcy@gmail.com
       PGADMIN_DEFAULT_PASSWORD: password
@@ -40,6 +38,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
+    networks:
+      - backend
     volumes:
       - ./:/usr/src/app
       - /usr/src/app/node_modules
@@ -49,3 +49,6 @@ services:
 volumes:
   postgres:
   pgadmin_data:
+
+networks:
+  backend:
