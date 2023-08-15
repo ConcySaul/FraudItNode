@@ -1,5 +1,10 @@
+import { QueryClient, QueryClientProvider } from 'react-query';
 import './reset.css'
 
+const queryClient = new QueryClient();
+
  export default function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  <QueryClientProvider client={queryClient}>
+    <Component {...pageProps} />
+  </QueryClientProvider>
 }

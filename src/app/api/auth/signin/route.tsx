@@ -2,6 +2,8 @@ import { NextResponse, NextRequest} from 'next/server'
 import { PrismaClient } from '@prisma/client'
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import { cookies } from 'next/headers'
+import { useQuery } from 'react-query';
 
 const prisma = new PrismaClient()
 
@@ -30,8 +32,8 @@ export async function POST(request: NextRequest) {
     }
     else {
         const payload = {sub: getEmail.id, username: getEmail.username};
-        const token = jwt.sign(payload);
-        console.log(token)
+        const token = jwt.sign(payload, process.env.JWT_KEY, { expiresIn: process.env.JWT_EXPIRE});
+        cookies().set('auth', token);
         return NextResponse.json({message: "signed in"}, {status: 200});
     }
 }
